@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('','');
+Route::prefix('livros')->group(function (){
+    Route::get('/premium',[LivroController::class,'livrosPagos'])->name('livros.premium');
+});
+Route::resource('livros', LivroController::class);
