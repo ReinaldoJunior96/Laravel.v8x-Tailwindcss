@@ -1,3 +1,4 @@
+const colors = require("tailwindcss");
 module.exports = {
     purge: [],
     purge: [
@@ -7,7 +8,15 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'principal': {
+                    tipo1: '#21ebfd',
+                },
+                'light-blue': colors.lightBlue,
+                cyan: colors.cyan,
+            },
+        },
     },
     variants: {
         extend: {},

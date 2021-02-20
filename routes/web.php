@@ -18,7 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('livros')->group(function (){
-    Route::get('/premium',[LivroController::class,'livrosPagos'])->name('livros.premium');
+
+Route::prefix('livros')->group(function () {
+    Route::get('/premium', [LivroController::class, 'livrosPagos'])->name('livros.premium');
 });
 Route::resource('livros', LivroController::class);
+
+
+Route::fallback(function () {
+    return "nenhuma rota encontrada";
+});
