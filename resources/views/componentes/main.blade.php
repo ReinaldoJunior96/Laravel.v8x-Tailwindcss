@@ -54,11 +54,13 @@
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="#"
-                           class="bg-white text-principal-dark shadow-2xl px-3 py-2 rounded-md text-sm font-medium">Laravel with tailwind frameworks</a>
+                           class="bg-white text-principal-dark shadow-2xl px-3 py-2 rounded-md text-sm font-medium">Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) & Tailwindcss Framework</a>
                         <a href="{{ route('livros.index') }}"
                            class="text-gray-300 hover:bg-white hover:text-black px-3 py-2 rounded-md text-sm font-medium">Produtos</a>
                         <a href="{{ route('livros.create') }}"
                            class="text-gray-300 hover:bg-white hover:text-black px-3 py-2 rounded-md text-sm font-medium">Cadastrar</a>
+                        <a href="#"
+                           class="text-gray-300 hover:bg-white hover:text-black px-3 py-2 rounded-md text-sm font-medium"></a>
                     </div>
                 </div>
             </div>
@@ -120,11 +122,14 @@
 
 @yield('table-produtos')
 @yield('form-cadastro')
+@yield('form-edit')
 
 
 
 
+<div class="text-center text-sm text-gray-500 sm:text-right sm:ml-0">
 
+</div>
 
 <script type="text/javascript">
     function changeClass() {

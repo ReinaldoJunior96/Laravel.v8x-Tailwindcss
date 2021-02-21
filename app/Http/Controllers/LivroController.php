@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Livro;
 use Illuminate\Http\Request;
 
 class LivroController extends Controller
@@ -13,7 +14,7 @@ class LivroController extends Controller
      */
     public function index()
     {
-        return view('livro.list-produtos');
+        return view('livro.list-produtos')->with('livros',Livro::all());
     }
 
     /**
@@ -30,11 +31,17 @@ class LivroController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        var_dump($request->nome_livro);
+        $livro = Livro::create([
+            'nome_livro'=> $request->nome_livro,
+            'tipo_livro'=> $request->tipo_livro,
+            'preco_livro'=>$request->preco_livro,
+        ]);
+        return redirect()->route('livros.index')->with('status', 'Sucesso! Produto Cadastado.');
+
     }
 
     /**
@@ -52,11 +59,11 @@ class LivroController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        return view('livro.edit')->with('livro', Livro::find($id));
     }
 
     /**
@@ -64,11 +71,16 @@ class LivroController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $livro = Livro::find($id);
+        $livro->nome_livro = $request->nome_livro;
+        $livro->tipo_livro = $request->tipo_livro;
+        $livro->preco_livro = $request->preco_livro;
+        $livro->save();
+        return back()->withInput()->with('status', 'Sucesso! Produto Alterado');
     }
 
     /**
@@ -79,6 +91,8 @@ class LivroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $livro = Livro::find($id);
+        $livro->delete();
+        return redirect()->route('livros.index')->with('status', 'Sucesso! Produto Deletado.');
     }
 }
