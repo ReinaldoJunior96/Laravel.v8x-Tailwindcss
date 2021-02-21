@@ -13,7 +13,7 @@ class LivroController extends Controller
      */
     public function index()
     {
-        return view('livro.index');
+        return view('livro.list-produtos');
     }
 
     /**
@@ -23,7 +23,7 @@ class LivroController extends Controller
      */
     public function create()
     {
-        //
+        return view('livro.cadastro');
     }
 
     /**
@@ -34,7 +34,7 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        var_dump($request->nome_livro);
     }
 
     /**

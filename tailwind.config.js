@@ -10,16 +10,26 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'principal': {
-                    tipo1: '#21ebfd',
+                principal: {
+                    normal: '#43cea2',
+                    light: '#81ddb5',
+                    dark: '#185447',
                 },
-                'light-blue': colors.lightBlue,
-                cyan: colors.cyan,
+                secondaria: {
+                    normal: '#185a9d',
+                    light: '#739fd7',
+                    dark: '#0d2f53',
+                },
+            },
+            fontFamily: {
+                'roboto': ['Roboto Condensed', 'sans-serif']
             },
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            tableLayout: ['hover', 'focus'],
+        },
     },
     plugins: [],
 }
