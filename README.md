@@ -8,7 +8,7 @@
 </p>
 
 ## Informações
-Crud básico de uma biblioteca virtual trabalhando rotas, model e controllers. Fazendo o uso das seguintes teclogicas:
+Crud básico de uma biblioteca virtual trabalhando rotas, model e controllers. Utilizando como front-end o [Tailwindcss](https://tailwindcss.com/docs).
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-ar21.svg" width="400"></a></p>
 
-- [Tailwindcss](https://tailwindcss.com/docs)
-- [Laravel](https://laravel.com/docs/8.x) em sua última versão
+
